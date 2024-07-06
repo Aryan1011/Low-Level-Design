@@ -1,0 +1,30 @@
+Implement Notify ME for amazon
+when product is out of stock
+send notification to all those who have clicked on Notify Me when product comes in stock
+
+that pub sub model
+
+Observer (observes observable) and Observable (when its state change, it
+updates all the observer)
+
+Observable interface ( add() (add which observer or register) , remove()(remove observer),
+notifyAll() (maintain list of observers and calls their update method),
+ setData() (suppose there is a data T,so when it changes call Notify()) ) It HAS A list of observers
+
+observer interface (update())
+
+ObservableConcreteClass IS A observable - Implement methods
+* ObserverConcreteClass IS A observer - implement update (takes Observable object
+because there can be many concrete classes and observer should know what has changed)
+and then in update method it has if else that if instanceOf(ObservableA) then do these
+changes else if (instanceOf(observableB) then do this)
+* other way is ObserverConcreteClass HAS A ObservableConcreteClass and make a constructor
+then when update is called by observerConcrete it will have ObservableConcrete object
+and it can call getData and know what kind of data is changed.
+
+Example
+WeatherStation sets temperature every 5 minutes
+Observed by many display like TV, Mobile
+
+WSObservable
+DisplayObserver
